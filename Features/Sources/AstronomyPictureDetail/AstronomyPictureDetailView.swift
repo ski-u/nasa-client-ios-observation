@@ -2,12 +2,18 @@ import Models
 import SwiftUI
 @preconcurrency import Translation
 
-struct AstronomyPictureDetailView: View {
+public struct AstronomyPictureDetailView: View {
     let picture: AstronomyPicture
     
     @State private var isPresentedFullScreenImage = false
     
-    var body: some View {
+    public init(
+        picture: AstronomyPicture,
+    ) {
+        self.picture = picture
+    }
+    
+    public var body: some View {
         ScrollView {
             VStack(spacing: 16) {
                 media()
