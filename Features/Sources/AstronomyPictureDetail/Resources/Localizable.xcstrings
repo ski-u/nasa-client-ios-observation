@@ -1,0 +1,29 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "copyright: %@" : {
+      "shouldTranslate" : false
+    },
+    "Failed to show the content:" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コンテンツの表示に失敗しました"
+          }
+        }
+      }
+    },
+    "Unexpected error occurred" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラーが発生しました"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.2"
+}

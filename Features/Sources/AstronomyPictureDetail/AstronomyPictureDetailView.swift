@@ -59,7 +59,7 @@ struct AstronomyPictureDetailView: View {
                         }
                 case let .failure(error):
                     VStack {
-                        Text("Failed to open:")
+                        Text("Failed to show the content:")
                         Link(picture.url!.absoluteString, destination: picture.url!)
                         Text(error.localizedDescription)
                     }
