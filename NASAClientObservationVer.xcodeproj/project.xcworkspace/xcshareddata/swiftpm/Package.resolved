@@ -1,0 +1,15 @@
+{
+  "originHash" : "de73cdf9a768b20e762291142b9f170a4672610f7d42447ed539c1ddf008554b",
+  "pins" : [
+    {
+      "identity" : "swift-local-date",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/konomae/swift-local-date.git",
+      "state" : {
+        "revision" : "93ec70c8232ef1a2ac235eec664544d0afc03a5f",
+        "version" : "0.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}

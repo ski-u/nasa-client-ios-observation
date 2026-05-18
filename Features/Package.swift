@@ -14,7 +14,14 @@ let package = Package(
         .library(
             name: "Features",
             targets: ["Features"]
-        )
+        ),
+        .library(
+            name: "Models",
+            targets: ["Models"],
+        ),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/konomae/swift-local-date.git", from: "0.5.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -33,6 +40,16 @@ let package = Package(
         .testTarget(
             name: "FeaturesTests",
             dependencies: ["Features"]
+        ),
+        .target(
+            name: "Models",
+            dependencies: [
+                .product(name: "LocalDate", package: "swift-local-date")
+            ],
+        ),
+        .testTarget(
+            name: "ModelsTests",
+            dependencies: ["Models"],
         ),
     ],
     swiftLanguageModes: [.v6]
