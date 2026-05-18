@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		024C87EF2FBB3BAC006AC5C3 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
 		0288A3CE2FBB354900978A5B /* NASAClientObservationVer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAClientObservationVer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0288A3DB2FBB354B00978A5B /* NASAClientObservationVerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASAClientObservationVerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0288A3E52FBB354B00978A5B /* NASAClientObservationVerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASAClientObservationVerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,7 @@
 		0288A3C52FBB354900978A5B = {
 			isa = PBXGroup;
 			children = (
+				024C87EF2FBB3BAC006AC5C3 /* Features */,
 				0288A3D02FBB354900978A5B /* NASAClientObservationVer */,
 				0288A3DE2FBB354B00978A5B /* NASAClientObservationVerTests */,
 				0288A3E82FBB354B00978A5B /* NASAClientObservationVerUITests */,
