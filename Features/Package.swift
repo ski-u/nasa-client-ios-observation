@@ -10,7 +10,7 @@ let package = Package(
         .library(
             name: "Features",
             targets: ["Features"]
-        ),
+        )
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
