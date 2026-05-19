@@ -3,7 +3,7 @@ import SwiftUI
 @preconcurrency import Translation
 
 public struct AstronomyPictureDetailView: View {
-    @State public var viewModel: AstronomyPictureDetailViewModel
+    let viewModel: AstronomyPictureDetailViewModel
     
     @State private var isPresentedFullScreenImage = false
     
