@@ -10,6 +10,10 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
+            name: "APIClient",
+            targets: ["APIClient"],
+        ),
+        .library(
             name: "AppFeature",
             targets: ["AppFeature"]
         ),
@@ -24,10 +28,20 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/konomae/swift-local-date.git", from: "0.5.0"),
+        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.12.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "APIClient",
+            dependencies: [
+                "Models",
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "DependenciesMacros", package: "swift-dependencies"),
+                .product(name: "LocalDate", package: "swift-local-date"),
+            ]
+        ),
         .target(
             name: "AppFeature",
             dependencies: [
