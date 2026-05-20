@@ -70,5 +70,4 @@ let package = Package(
             dependencies: ["Models"],
         ),
     ],
-    swiftLanguageModes: [.v6]
 )
