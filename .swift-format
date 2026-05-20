@@ -5,6 +5,7 @@
     "spaces" : 4
   },
   "lineBreakBeforeEachArgument" : true,
+  "lineLength": 160,
   "multiElementCollectionTrailingCommas" : true,
   "prioritizeKeepingFunctionOutputTogether" : true,
   "rules": {
