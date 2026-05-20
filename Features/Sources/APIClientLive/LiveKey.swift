@@ -16,7 +16,7 @@ extension APIClient: DependencyKey {
                         URLQueryItem(
                             name: "date",
                             value: $0.description,
-                        ),
+                        )
                     ],
                 )
                 return AstronomyPicture(payload: payload)
@@ -33,9 +33,10 @@ extension APIClient: DependencyKey {
             resolvingAgainstBaseURL: false,
         )!
         urlComponents.path = path
-        urlComponents.queryItems = [
-            URLQueryItem(name: "api_key", value: "")
-        ] + queryItems
+        urlComponents.queryItems =
+            [
+                URLQueryItem(name: "api_key", value: "")
+            ] + queryItems
         
         let (data, response) = try await URLSession.shared.data(from: urlComponents.url!)
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -44,12 +45,10 @@ extension APIClient: DependencyKey {
         let statusCode = httpResponse.statusCode
         
         guard (200..<300).contains(statusCode) else {
-            let errorMessage = (
-                try? JSONDecoder().decode(NASAErrorResponse.self, from: data)
-            )
-            .flatMap {
-                $0.error?.message ?? $0.msg
-            }
+            let errorMessage = (try? JSONDecoder().decode(NASAErrorResponse.self, from: data))
+                .flatMap {
+                    $0.error?.message ?? $0.msg
+                }
             throw NASAClientError.httpError(statusCode: statusCode, message: errorMessage)
         }
         
