@@ -13,6 +13,10 @@ let package = Package(
             targets: ["APIClient"],
         ),
         .library(
+            name: "APIClientLive",
+            targets: ["APIClientLive"],
+        ),
+        .library(
             name: "AppFeature",
             targets: ["AppFeature"]
         ),
@@ -38,6 +42,12 @@ let package = Package(
                 .product(name: "DependenciesMacros", package: "swift-dependencies"),
                 .product(name: "LocalDate", package: "swift-local-date"),
             ]
+        ),
+        .target(
+            name: "APIClientLive",
+            dependencies: [
+                "APIClient",
+            ],
         ),
         .target(
             name: "AppFeature",

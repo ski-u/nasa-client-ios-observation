@@ -1,0 +1,26 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "API key configuration is required in the Settings tab to retrieve data" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データ取得には設定タブでのAPIキーの設定が必要です"
+          }
+        }
+      }
+    },
+    "Received an unexpected non-HTTP response" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "予期しないレスポンスを受け取りました"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.2"
+}
