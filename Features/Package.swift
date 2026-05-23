@@ -52,6 +52,7 @@ let package = Package(
         .target(
             name: "AppFeature",
             dependencies: [
+                "APIClientLive",
                 "AstronomyPictureDetail"
             ]
         ),
@@ -62,7 +63,8 @@ let package = Package(
         .target(
             name: "AstronomyPictureDetail",
             dependencies: [
-                "Models"
+                "APIClient",
+                "Models",
             ],
         ),
         .testTarget(

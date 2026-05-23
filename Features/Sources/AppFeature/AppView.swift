@@ -1,4 +1,6 @@
+import APIClientLive
 import AstronomyPictureDetail
+import Dependencies
 import SwiftUI
 
 public struct AppView: View {
@@ -7,7 +9,13 @@ public struct AppView: View {
     public var body: some View {
         NavigationStack {
             AstronomyPictureDetailView(
-                viewModel: .init()
+                viewModel: withDependencies {
+                    $0.apiClient = .liveValue
+                } operation: {
+                    AstronomyPictureDetailViewModel(
+                        date: .init(),
+                    )
+                }
             )
         }
     }

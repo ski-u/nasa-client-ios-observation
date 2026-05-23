@@ -39,7 +39,7 @@ public struct AstronomyPictureDetailView: View {
             }
             .redacted(reason: viewModel.picture == nil ? .placeholder : .init())
         }
-        .navigationTitle(Text(viewModel.picture?.date.description ?? "Today"))
+        .navigationTitle(Text(viewModel.date.description))
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.onAppear()
@@ -108,6 +108,7 @@ private extension AstronomyPicture {
     NavigationStack {
         AstronomyPictureDetailView(
             viewModel: .init(
+                date: .init(),
                 picture: .init(
                     copyright: "Bray FallsKeith Quattrocchi",
                     date: .init(year: 2012, month: 7, day: 12),
@@ -129,6 +130,7 @@ private extension AstronomyPicture {
     NavigationStack {
         AstronomyPictureDetailView(
             viewModel: .init(
+                date: .init(),
                 picture: .init(
                     copyright: nil,
                     date: .init(year: 2012, month: 7, day: 12),
@@ -148,6 +150,7 @@ private extension AstronomyPicture {
     NavigationStack {
         AstronomyPictureDetailView(
             viewModel: .init(
+                date: .init(),
                 picture: .init(
                     copyright: "\nSpaceX\n",
                     date: .init(year: 2024, month: 10, day: 23),
@@ -167,6 +170,7 @@ private extension AstronomyPicture {
     NavigationStack {
         AstronomyPictureDetailView(
             viewModel: .init(
+                date: .init(),
                 picture: nil,
             )
         )

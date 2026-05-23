@@ -1,29 +1,52 @@
+import APIClient
+import Dependencies
+import LocalDate
 import Models
 import Observation
 
 @MainActor
 @Observable
 public final class AstronomyPictureDetailViewModel {
+    let date: LocalDate
+    var errorMessage: String?
     var picture: AstronomyPicture?
     
+    @ObservationIgnored
+    private var fetchTask: Task<Void, Never>?
+    
+    @ObservationIgnored
+    @Dependency(\.apiClient) private var apiClient
+    
     public init(
+        date: LocalDate,
+        errorMessage: String? = nil,
         picture: AstronomyPicture? = nil,
     ) {
+        self.date = date
+        self.errorMessage = errorMessage
         self.picture = picture
     }
     
     func onAppear() {
-        picture = .init(
-            copyright: "Bray FallsKeith Quattrocchi",
-            date: .init(year: 2012, month: 7, day: 12),
-            explanation:
-                "What will become of our Sun? The first hint of our Sun's future was discovered inadvertently in 1764. At that time, Charles Messier was compiling a list of diffuse objects not to be confused with comets. The 27th object on Messier's list, now known as M27 or the Dumbbell Nebula, is a planetary nebula, one of the brightest planetary nebulae on the sky -- and visible toward the constellation of the Fox (Vulpecula) with binoculars. It takes light about 1000 years to reach us from M27, featured here in colors emitted by hydrogen and oxygen. We now know that in about 6 billion years, our Sun will shed its outer gases into a planetary nebula like M27, while its remaining center will become an X-ray hot white dwarf star.  Understanding the physics and significance of M27 was well beyond 18th century science, though. Even today, many things remain mysterious about planetary nebulas, including how their intricate shapes are created.",
-            hdURL: .init(
-                string: "https://apod.nasa.gov/apod/image/2107/M27_Falls_3557.jpg"
-            )!,
-            mediaType: .image,
-            title: "M27: The Dumbbell Nebula",
-            url: .init(string: "https://apod.nasa.gov/apod/image/2107/M27_Falls_960.jpg")!,
-        )
+        if picture != nil {
+            return
+        }
+        
+        fetchAstronomyPicture(date: date)
+    }
+    
+    private func fetchAstronomyPicture(date: LocalDate) {
+        fetchTask?.cancel()
+        
+        errorMessage = nil
+        picture = nil
+        
+        fetchTask = Task {
+            do {
+                picture = try await apiClient.fetchAstronomyPictures(date: date)
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+        }
     }
 }
