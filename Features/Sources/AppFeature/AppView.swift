@@ -1,6 +1,6 @@
 import APIClientLive
-import AstronomyPictureDetail
 import Dependencies
+import FeatureAstronomyPictureDetail
 import SwiftUI
 
 public struct AppView: View {

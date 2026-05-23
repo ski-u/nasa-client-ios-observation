@@ -29,16 +29,16 @@ let package = Package(
             targets: ["AppFeature"]
         ),
         .library(
-            name: "AstronomyPictureDetail",
-            targets: ["AstronomyPictureDetail"],
+            name: "FeatureAstronomyPictureDetail",
+            targets: ["FeatureAstronomyPictureDetail"],
+        ),
+        .library(
+            name: "FeatureSettings",
+            targets: ["FeatureSettings"],
         ),
         .library(
             name: "Models",
             targets: ["Models"],
-        ),
-        .library(
-            name: "Settings",
-            targets: ["Settings"],
         ),
     ],
     dependencies: [
@@ -81,7 +81,7 @@ let package = Package(
             name: "AppFeature",
             dependencies: [
                 "APIClientLive",
-                "AstronomyPictureDetail"
+                "FeatureAstronomyPictureDetail"
             ]
         ),
         .testTarget(
@@ -89,15 +89,26 @@ let package = Package(
             dependencies: ["AppFeature"]
         ),
         .target(
-            name: "AstronomyPictureDetail",
+            name: "FeatureAstronomyPictureDetail",
             dependencies: [
                 "APIClient",
                 "Models",
             ],
         ),
         .testTarget(
-            name: "AstronomyPictureDetailTests",
-            dependencies: ["AstronomyPictureDetail"],
+            name: "FeatureAstronomyPictureDetailTests",
+            dependencies: ["FeatureAstronomyPictureDetail"],
+        ),
+        .target(
+            name: "FeatureSettings",
+            dependencies: [
+                "APIClient",
+                "APIKeyClient",
+            ],
+        ),
+        .testTarget(
+            name: "FeatureSettingsTests",
+            dependencies: ["FeatureSettings"],
         ),
         .target(
             name: "Models",
@@ -108,17 +119,6 @@ let package = Package(
         .testTarget(
             name: "ModelsTests",
             dependencies: ["Models"],
-        ),
-        .target(
-            name: "Settings",
-            dependencies: [
-                "APIClient",
-                "APIKeyClient",
-            ],
-        ),
-        .testTarget(
-            name: "SettingsTests",
-            dependencies: ["Settings"],
         ),
     ],
 )

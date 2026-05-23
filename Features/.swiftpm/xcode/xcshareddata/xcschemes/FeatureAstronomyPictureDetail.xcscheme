@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AstronomyPictureDetailTests"
-               BuildableName = "AstronomyPictureDetailTests"
-               BlueprintName = "AstronomyPictureDetailTests"
+               BlueprintIdentifier = "FeatureAstronomyPictureDetail"
+               BuildableName = "FeatureAstronomyPictureDetail"
+               BlueprintName = "FeatureAstronomyPictureDetail"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,9 +34,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AstronomyPictureDetailTests"
-               BuildableName = "AstronomyPictureDetailTests"
-               BlueprintName = "AstronomyPictureDetailTests"
+               BlueprintIdentifier = "FeatureAstronomyPictureDetailTests"
+               BuildableName = "FeatureAstronomyPictureDetailTests"
+               BlueprintName = "FeatureAstronomyPictureDetailTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AstronomyPictureDetailTests"
-            BuildableName = "AstronomyPictureDetailTests"
-            BlueprintName = "AstronomyPictureDetailTests"
+            BlueprintIdentifier = "FeatureAstronomyPictureDetail"
+            BuildableName = "FeatureAstronomyPictureDetail"
+            BlueprintName = "FeatureAstronomyPictureDetail"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
