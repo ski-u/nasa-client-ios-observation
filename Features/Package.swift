@@ -36,6 +36,10 @@ let package = Package(
             name: "Models",
             targets: ["Models"],
         ),
+        .library(
+            name: "Settings",
+            targets: ["Settings"],
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
@@ -104,6 +108,17 @@ let package = Package(
         .testTarget(
             name: "ModelsTests",
             dependencies: ["Models"],
+        ),
+        .target(
+            name: "Settings",
+            dependencies: [
+                "APIClient",
+                "APIKeyClient",
+            ],
+        ),
+        .testTarget(
+            name: "SettingsTests",
+            dependencies: ["Settings"],
         ),
     ],
 )
