@@ -17,6 +17,14 @@ let package = Package(
             targets: ["APIClientLive"],
         ),
         .library(
+            name: "APIKeyClient",
+            targets: ["APIKeyClient"],
+        ),
+        .library(
+            name: "APIKeyClientLive",
+            targets: ["APIKeyClientLive"],
+        ),
+        .library(
             name: "AppFeature",
             targets: ["AppFeature"]
         ),
