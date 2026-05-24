@@ -12,8 +12,8 @@ public struct APIKeyClient: Sendable {
 extension APIKeyClient: TestDependencyKey {
     public static let testValue = Self()
     
-    public static var inMemory: Self {
-        let key = LockIsolated<APIKey?>(nil)
+    public static func inMemory(initialKey: APIKey? = nil) -> Self {
+        let key = LockIsolated<APIKey?>(initialKey)
         
         return .init(
             getKey: { key.value },
