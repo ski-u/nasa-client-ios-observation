@@ -2,29 +2,23 @@ import Dependencies
 import SwiftUI
 
 public struct SettingsView: View {
-    let viewModel: SettingsViewModel
+    @Bindable var viewModel: SettingsViewModel
     
     public init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
     }
     
     public var body: some View {
-        NavigationStack {
+        NavigationStack(path: $viewModel.path) {
             List {
                 Section {
-                    NavigationLink {
-                        APIKeySettingView(
-                            viewModel: .init(
-                                onUpdatedKey: viewModel.onUpdatedAPIKey,
-                            )
-                        )
-                    } label: {
+                    NavigationLink(value: SettingsViewModel.Destination.apiKeySetting) {
                         Label {
                             HStack {
                                 Text("API Key", bundle: .module)
-                                
+
                                 Spacer()
-                                
+
                                 if let key = viewModel.apiKey.masked {
                                     Text(key)
                                         .foregroundStyle(Color.secondary)
@@ -41,6 +35,16 @@ public struct SettingsView: View {
                 }
             }
             .navigationTitle(Text("Settings", bundle: .module))
+            .navigationDestination(for: SettingsViewModel.Destination.self) {
+                switch $0 {
+                case .apiKeySetting:
+                    APIKeySettingView(
+                        viewModel: .init(
+                            onUpdatedKey: viewModel.onAppear,
+                        )
+                    )
+                }
+            }
         }
         .onAppear(perform: viewModel.onAppear)
     }
