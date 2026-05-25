@@ -63,7 +63,8 @@ let package = Package(
         .target(
             name: "APIClientLive",
             dependencies: [
-                "APIClient"
+                "APIClient",
+                "APIKeyClientLive",
             ],
         ),
         .target(

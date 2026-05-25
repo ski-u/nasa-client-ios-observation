@@ -1,10 +1,13 @@
 import APIClient
+import APIKeyClient
+import APIKeyClientLive
 import Dependencies
 import Foundation
 import LocalDate
 import Models
 
 extension APIClient: DependencyKey {
+    private static let apiKeyClient = APIKeyClient.liveValue
     private static let baseURL = URL(string: "https://api.nasa.gov")!
     
     public static var liveValue: Self {
@@ -28,6 +31,10 @@ extension APIClient: DependencyKey {
         path: String,
         queryItems: [URLQueryItem] = [],
     ) async throws -> T {
+        guard let apiKey = apiKeyClient.getKey() else {
+            throw NASAClientError.missingAPIKey
+        }
+        
         var urlComponents = URLComponents(
             url: baseURL,
             resolvingAgainstBaseURL: false,
@@ -35,7 +42,7 @@ extension APIClient: DependencyKey {
         urlComponents.path = path
         urlComponents.queryItems =
             [
-                URLQueryItem(name: "api_key", value: "")
+                URLQueryItem(name: "api_key", value: apiKey.rawValue)
             ] + queryItems
         
         let (data, response) = try await URLSession.shared.data(from: urlComponents.url!)
