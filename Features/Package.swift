@@ -40,6 +40,10 @@ let package = Package(
             name: "Models",
             targets: ["Models"],
         ),
+        .library(
+            name: "SharedUI",
+            targets: ["SharedUI"],
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
@@ -120,6 +124,10 @@ let package = Package(
         .testTarget(
             name: "ModelsTests",
             dependencies: ["Models"],
+        ),
+        .target(
+            name: "SharedUI",
+            dependencies: [],
         ),
     ],
 )
