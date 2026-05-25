@@ -98,6 +98,7 @@ let package = Package(
             dependencies: [
                 "APIClient",
                 "Models",
+                "SharedUI",
             ],
         ),
         .testTarget(

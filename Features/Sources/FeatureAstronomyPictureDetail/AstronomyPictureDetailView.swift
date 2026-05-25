@@ -1,6 +1,6 @@
 import Models
+import SharedUI
 import SwiftUI
-@preconcurrency import Translation
 
 public struct AstronomyPictureDetailView: View {
     let viewModel: AstronomyPictureDetailViewModel
@@ -15,35 +15,47 @@ public struct AstronomyPictureDetailView: View {
     
     public var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
-                if let picture = viewModel.picture {
-                    media(picture: picture)
-                } else {
-                    ProgressView()
-                }
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(viewModel.picture?.title ?? AstronomyPicture.placeholder.title)
-                        .font(.title2.bold())
-                    
-                    Text(viewModel.picture?.explanation ?? AstronomyPicture.placeholder.explanation)
-                    
-                    if let copyright = viewModel.picture?.copyright {
-                        Text("copyright: \(copyright)")
-                            .font(.caption)
-                            .foregroundStyle(Color.secondary)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
+            if let errorMessage = viewModel.errorMessage {
+                ErrorView(
+                    error: Text(errorMessage),
+                    retry: viewModel.retryButtonTapped,
+                )
+                .padding()
+            } else {
+                content
             }
-            .redacted(reason: viewModel.picture == nil ? .placeholder : .init())
         }
         .navigationTitle(Text(viewModel.date.description))
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.onAppear()
         }
+    }
+    
+    private var content: some View {
+        VStack(spacing: 16) {
+            if let picture = viewModel.picture {
+                media(picture: picture)
+            } else {
+                ProgressView()
+            }
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text(viewModel.picture?.title ?? AstronomyPicture.placeholder.title)
+                    .font(.title2.bold())
+                
+                Text(viewModel.picture?.explanation ?? AstronomyPicture.placeholder.explanation)
+                
+                if let copyright = viewModel.picture?.copyright {
+                    Text("copyright: \(copyright)")
+                        .font(.caption)
+                        .foregroundStyle(Color.secondary)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+        }
+        .redacted(reason: viewModel.picture == nil ? .placeholder : .init())
     }
     
     @ViewBuilder

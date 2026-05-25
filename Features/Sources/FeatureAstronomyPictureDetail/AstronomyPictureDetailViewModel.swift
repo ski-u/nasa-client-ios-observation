@@ -35,6 +35,10 @@ public final class AstronomyPictureDetailViewModel {
         fetchAstronomyPicture(date: date)
     }
     
+    func retryButtonTapped() {
+        fetchAstronomyPicture(date: date)
+    }
+    
     private func fetchAstronomyPicture(date: LocalDate) {
         fetchTask?.cancel()
         
