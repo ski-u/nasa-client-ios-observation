@@ -81,7 +81,8 @@ let package = Package(
             name: "AppFeature",
             dependencies: [
                 "APIClientLive",
-                "FeatureAstronomyPictureDetail"
+                "FeatureAstronomyPictureDetail",
+                "FeatureSettings",
             ]
         ),
         .testTarget(
