@@ -5,6 +5,8 @@ import SwiftUI
 struct APIKeySettingView: View {
     @Bindable var viewModel: APIKeySettingViewModel
     
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         Form {
             Section(footer: link) {
@@ -19,7 +21,10 @@ struct APIKeySettingView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button(action: viewModel.saveButtonTapped) {
+                Button {
+                    viewModel.saveButtonTapped()
+                    dismiss()
+                } label: {
                     Text("Save", bundle: .module)
                 }
                 .disabled(!viewModel.isEdited)

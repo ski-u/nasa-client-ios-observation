@@ -40,7 +40,7 @@ public struct SettingsView: View {
                 case .apiKeySetting:
                     APIKeySettingView(
                         viewModel: .init(
-                            onUpdatedKey: viewModel.onAppear,
+                            onUpdatedKey: viewModel.onUpdatedAPIKey,
                         )
                     )
                 }
