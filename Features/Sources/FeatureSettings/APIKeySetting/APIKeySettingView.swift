@@ -3,9 +3,13 @@ import Observation
 import SwiftUI
 
 struct APIKeySettingView: View {
-    @Bindable var viewModel: APIKeySettingViewModel
+    @State private var viewModel: APIKeySettingViewModel
     
     @Environment(\.dismiss) private var dismiss
+    
+    init(viewModel: APIKeySettingViewModel) {
+        _viewModel = State(initialValue: viewModel)
+    }
     
     var body: some View {
         Form {
