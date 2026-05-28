@@ -3,10 +3,15 @@ import Dependencies
 import FeatureAstronomyPictureDetail
 import FeatureSettings
 import LocalDate
+import Models
+import SharedKeys
+import Sharing
 import SwiftUI
 
 public struct AppView: View {
-    @Bindable var viewModel: AppViewModel
+    @State private var viewModel: AppViewModel
+    
+    @Shared(.colorSchme) private var userColorScheme = UserColorScheme.system
     
     public init(
         viewModel: AppViewModel = .init(
@@ -14,7 +19,7 @@ public struct AppView: View {
             settingsViewModel: .init(),
         ),
     ) {
-        self.viewModel = viewModel
+        _viewModel = State(initialValue: viewModel)
     }
     
     public var body: some View {
@@ -30,6 +35,7 @@ public struct AppView: View {
                     Text("Today", bundle: .module)
                 }
             }
+            .tag(AppViewModel.Tab.astronomyPicture)
             
             SettingsView(
                 viewModel: viewModel.settingsViewModel,
@@ -40,6 +46,8 @@ public struct AppView: View {
                     Text("Settings", bundle: .module)
                 }
             }
+            .tag(AppViewModel.Tab.settings)
         }
+        .preferredColorScheme(userColorScheme.colorScheme)
     }
 }
