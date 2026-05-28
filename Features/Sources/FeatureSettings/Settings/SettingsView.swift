@@ -60,7 +60,7 @@ public struct SettingsView: View {
                         )
                     )
                 case .appearanceSetting:
-                    EmptyView()
+                    AppearanceSettingView()
                 }
             }
         }
