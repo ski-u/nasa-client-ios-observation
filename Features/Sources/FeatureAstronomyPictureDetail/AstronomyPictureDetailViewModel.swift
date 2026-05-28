@@ -7,8 +7,9 @@ import Observation
 @MainActor
 @Observable
 public final class AstronomyPictureDetailViewModel {
-    let date: LocalDate
+    var date: LocalDate
     var errorMessage: String?
+    var isCalendarPresented: Bool
     var picture: AstronomyPicture?
     
     @ObservationIgnored
@@ -20,11 +21,22 @@ public final class AstronomyPictureDetailViewModel {
     public init(
         date: LocalDate,
         errorMessage: String? = nil,
+        isCalendarPresented: Bool = false,
         picture: AstronomyPicture? = nil,
     ) {
         self.date = date
         self.errorMessage = errorMessage
+        self.isCalendarPresented = isCalendarPresented
         self.picture = picture
+    }
+    
+    func calendarButtonTapped() {
+        isCalendarPresented = true
+    }
+    
+    func dateSelected() {
+        isCalendarPresented = false
+        fetchAstronomyPicture(date: date)
     }
     
     func onAppear() {

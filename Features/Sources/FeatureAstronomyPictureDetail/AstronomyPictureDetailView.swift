@@ -27,8 +27,22 @@ public struct AstronomyPictureDetailView: View {
         }
         .navigationTitle(Text(viewModel.date.description))
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: viewModel.calendarButtonTapped) {
+                    Image(systemName: "calendar")
+                }
+            }
+        }
         .onAppear {
             viewModel.onAppear()
+        }
+        .sheet(isPresented: $viewModel.isCalendarPresented) {
+            LocalDatePickerView(
+                selection: $viewModel.date,
+                onCompleted: viewModel.dateSelected,
+            )
+            .presentationDetents([.medium, .large])
         }
     }
     
