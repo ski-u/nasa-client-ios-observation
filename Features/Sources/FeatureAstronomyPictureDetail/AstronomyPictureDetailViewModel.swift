@@ -38,7 +38,7 @@ public final class AstronomyPictureDetailViewModel {
     func dateSelected(_ date: LocalDate) {
         self.date = date
         isCalendarPresented = false
-        fetchAstronomyPicture(date: date)
+        fetchAstronomyPicture()
     }
     
     func onAppear() {
@@ -46,14 +46,14 @@ public final class AstronomyPictureDetailViewModel {
             return
         }
         
-        fetchAstronomyPicture(date: date)
+        fetchAstronomyPicture()
     }
     
     func retryButtonTapped() {
-        fetchAstronomyPicture(date: date)
+        fetchAstronomyPicture()
     }
     
-    private func fetchAstronomyPicture(date: LocalDate) {
+    private func fetchAstronomyPicture() {
         fetchTask?.cancel()
         
         errorMessage = nil
