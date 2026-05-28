@@ -18,9 +18,10 @@ public struct LocalDatePickerView: View {
         NavigationStack {
             DatePicker(
                 selection: .init(
-                    get: { selection.date(in: .current) },
-                    set: { selection = .init(from: $0, in: .current) },
+                    get: { selection.date(in: newYorkTimeZone) },
+                    set: { selection = .init(from: $0, in: newYorkTimeZone) },
                 ),
+                in: minimumDate...maximumDate,
                 displayedComponents: [.date],
             ) {
                 EmptyView()
@@ -38,6 +39,31 @@ public struct LocalDatePickerView: View {
                 }
             }
         }
+    }
+}
+
+private extension LocalDatePickerView {
+    var newYorkTimeZone: TimeZone {
+        .init(identifier: "America/New_York")!
+    }
+    
+    var newYorkCalendar: Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = newYorkTimeZone
+        return calendar
+    }
+    
+    var maximumDate: Date {
+        newYorkCalendar.startOfDay(for: .now)
+    }
+    
+    var minimumDate: Date {
+        DateComponents(
+            calendar: newYorkCalendar,
+            year: 1995,
+            month: 6,
+            day: 16,
+        ).date!
     }
 }
 
