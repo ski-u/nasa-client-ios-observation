@@ -20,16 +20,6 @@
           }
         }
       }
-    },
-    "Select date" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日付を選択"
-          }
-        }
-      }
     }
   },
   "version" : "1.2"
