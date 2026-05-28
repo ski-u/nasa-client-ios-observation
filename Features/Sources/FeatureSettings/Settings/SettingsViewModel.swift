@@ -2,16 +2,22 @@ import APIKeyClient
 import Dependencies
 import Models
 import Observation
+import SharedKeys
+import Sharing
 
 @MainActor
 @Observable
 public final class SettingsViewModel {
     public enum Destination {
         case apiKeySetting
+        case appearanceSetting
     }
     
     var apiKey: APIKey
     var path: [Destination]
+    
+    @ObservationIgnored
+    @Shared(.colorSchme) var userColorScheme = UserColorScheme.system
     
     @ObservationIgnored
     @Dependency(\.apiKeyClient) private var apiKeyClient

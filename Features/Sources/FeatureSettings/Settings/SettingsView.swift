@@ -32,6 +32,22 @@ public struct SettingsView: View {
                                 .foregroundStyle(Color.yellow)
                         }
                     }
+                    
+                    NavigationLink(value: SettingsViewModel.Destination.appearanceSetting) {
+                        Label {
+                            HStack {
+                                Text("Appearance", bundle: .module)
+                                
+                                Spacer()
+                                
+                                Text(viewModel.userColorScheme.displayString, bundle: .module)
+                                    .foregroundStyle(Color.secondary)
+                            }
+                        } icon: {
+                            Image(systemName: "circle.lefthalf.filled")
+                                .foregroundStyle(Color.green)
+                        }
+                    }
                 }
             }
             .navigationTitle(Text("Settings", bundle: .module))
@@ -43,6 +59,8 @@ public struct SettingsView: View {
                             onUpdatedKey: viewModel.onUpdatedAPIKey,
                         )
                     )
+                case .appearanceSetting:
+                    EmptyView()
                 }
             }
         }

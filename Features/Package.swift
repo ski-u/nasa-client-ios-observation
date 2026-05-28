@@ -116,6 +116,8 @@ let package = Package(
             dependencies: [
                 "APIClient",
                 "APIKeyClient",
+                "SharedKeys",
+                .product(name: "Sharing", package: "swift-sharing"),
             ],
         ),
         .testTarget(
