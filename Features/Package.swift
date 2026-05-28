@@ -145,7 +145,9 @@ let package = Package(
         ),
         .target(
             name: "SharedUI",
-            dependencies: [],
+            dependencies: [
+                .product(name: "LocalDate", package: "swift-local-date"),
+            ],
         ),
     ],
 )
