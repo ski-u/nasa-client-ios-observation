@@ -3,14 +3,14 @@ import SharedUI
 import SwiftUI
 
 public struct AstronomyPictureDetailView: View {
-    let viewModel: AstronomyPictureDetailViewModel
+    @State private var viewModel: AstronomyPictureDetailViewModel
     
     @State private var isPresentedFullScreenImage = false
     
     public init(
         viewModel: AstronomyPictureDetailViewModel,
     ) {
-        self.viewModel = viewModel
+        _viewModel = State(initialValue: viewModel)
     }
     
     public var body: some View {

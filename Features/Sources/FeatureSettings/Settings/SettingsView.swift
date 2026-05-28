@@ -2,10 +2,10 @@ import Dependencies
 import SwiftUI
 
 public struct SettingsView: View {
-    @Bindable var viewModel: SettingsViewModel
+    @State private var viewModel: SettingsViewModel
     
     public init(viewModel: SettingsViewModel) {
-        self.viewModel = viewModel
+        _viewModel = State(initialValue: viewModel)
     }
     
     public var body: some View {
