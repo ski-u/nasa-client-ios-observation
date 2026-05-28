@@ -3,14 +3,12 @@ import LocalDate
 import SwiftUI
 
 public struct LocalDatePickerView: View {
-    @Binding var selection: LocalDate
-    var onCompleted: () -> Void
+    @State private var selection: LocalDate = .init(from: Date(), in: .newYork)
+    var onCompleted: (LocalDate) -> Void
     
     public init(
-        selection: Binding<LocalDate>,
-        onCompleted: @escaping () -> Void,
+        onCompleted: @escaping (LocalDate) -> Void,
     ) {
-        _selection = selection
         self.onCompleted = onCompleted
     }
     
@@ -32,7 +30,7 @@ public struct LocalDatePickerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button(action: onCompleted) {
+                    Button(action: { onCompleted(selection) }) {
                         Image(systemName: "checkmark")
                     }
                     .buttonStyle(.borderedProminent)
@@ -65,7 +63,6 @@ private extension LocalDatePickerView {
 
 #Preview {
     LocalDatePickerView(
-        selection: .constant(.init()),
-        onCompleted: {},
+        onCompleted: { _ in },
     )
 }

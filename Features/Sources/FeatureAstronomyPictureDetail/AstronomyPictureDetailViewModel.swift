@@ -35,7 +35,8 @@ public final class AstronomyPictureDetailViewModel {
         isCalendarPresented = true
     }
     
-    func dateSelected() {
+    func dateSelected(_ date: LocalDate) {
+        self.date = date
         isCalendarPresented = false
         fetchAstronomyPicture(date: date)
     }
