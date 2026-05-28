@@ -1,7 +1,6 @@
 import FeatureAstronomyPictureDetail
 import FeatureSettings
 import Observation
-import Settings
 
 @MainActor
 @Observable
