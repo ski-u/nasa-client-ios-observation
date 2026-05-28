@@ -1,4 +1,5 @@
 import Dependencies
+import LicenseList
 import SwiftUI
 
 public struct SettingsView: View {
@@ -49,6 +50,17 @@ public struct SettingsView: View {
                         }
                     }
                 }
+                
+                Section {
+                    NavigationLink(value: SettingsViewModel.Destination.licenseList) {
+                        Label {
+                            Text("Open Source Licenses", bundle: .module)
+                        } icon: {
+                            Image(systemName: "wrench.and.screwdriver.fill")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
             }
             .navigationTitle(Text("Settings", bundle: .module))
             .navigationDestination(for: SettingsViewModel.Destination.self) {
@@ -61,6 +73,11 @@ public struct SettingsView: View {
                     )
                 case .appearanceSetting:
                     AppearanceSettingView()
+                case .licenseList:
+                    LicenseListView()
+                        .licenseViewStyle(.withRepositoryAnchorLink)
+                        .navigationTitle(Text("Open Source Licenses", bundle: .module))
+                        .navigationBarTitleDisplayMode(.inline)
                 }
             }
         }

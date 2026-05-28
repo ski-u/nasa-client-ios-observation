@@ -11,6 +11,7 @@ public final class SettingsViewModel {
     public enum Destination {
         case apiKeySetting
         case appearanceSetting
+        case licenseList
     }
     
     var apiKey: APIKey

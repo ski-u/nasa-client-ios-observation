@@ -71,6 +71,16 @@
         }
       }
     },
+    "Open Source Licenses" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オープンソースライセンス"
+          }
+        }
+      }
+    },
     "Save" : {
       "localizations" : {
         "ja" : {
