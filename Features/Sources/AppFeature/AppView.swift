@@ -15,7 +15,7 @@ public struct AppView: View {
     
     public init(
         viewModel: AppViewModel = .init(
-            astronomyPictureDetailViewModel: .init(date: .init()),
+            astronomyPictureDetailViewModel: .init(),
             settingsViewModel: .init(),
         ),
     ) {

@@ -18,8 +18,8 @@ public struct LocalDatePickerView: View {
         NavigationStack {
             DatePicker(
                 selection: .init(
-                    get: { selection.date(in: newYorkTimeZone) },
-                    set: { selection = .init(from: $0, in: newYorkTimeZone) },
+                    get: { selection.date(in: .newYork) },
+                    set: { selection = .init(from: $0, in: .newYork) },
                 ),
                 in: minimumDate...maximumDate,
                 displayedComponents: [.date],
@@ -43,13 +43,9 @@ public struct LocalDatePickerView: View {
 }
 
 private extension LocalDatePickerView {
-    var newYorkTimeZone: TimeZone {
-        .init(identifier: "America/New_York")!
-    }
-    
     var newYorkCalendar: Calendar {
         var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = newYorkTimeZone
+        calendar.timeZone = .newYork
         return calendar
     }
     

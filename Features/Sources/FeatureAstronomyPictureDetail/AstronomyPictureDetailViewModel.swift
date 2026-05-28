@@ -1,5 +1,6 @@
 import APIClient
 import Dependencies
+import Foundation
 import LocalDate
 import Models
 import Observation
@@ -19,7 +20,7 @@ public final class AstronomyPictureDetailViewModel {
     @Dependency(\.apiClient) private var apiClient
     
     public init(
-        date: LocalDate,
+        date: LocalDate = .init(from: Date(), in: .newYork),
         errorMessage: String? = nil,
         isCalendarPresented: Bool = false,
         picture: AstronomyPicture? = nil,
