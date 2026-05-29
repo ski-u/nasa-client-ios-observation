@@ -29,4 +29,3 @@ struct SettingsViewModelTests {
         #expect(viewModel.apiKey == .init(rawValue: "UPDATED_KEY"))
     }
 }
-

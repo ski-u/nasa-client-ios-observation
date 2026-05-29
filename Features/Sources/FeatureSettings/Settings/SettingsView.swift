@@ -17,9 +17,9 @@ public struct SettingsView: View {
                         Label {
                             HStack {
                                 Text("API Key", bundle: .module)
-
+                                
                                 Spacer()
-
+                                
                                 if let key = viewModel.apiKey.masked {
                                     Text(key)
                                         .foregroundStyle(Color.secondary)
