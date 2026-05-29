@@ -1,0 +1,27 @@
+name: Format
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_26.4.app/Contents/Developer
+
+jobs:
+  format:
+    runs-on: macos-26
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run swift-format
+        run: swift format . --in-place --recursive --configuration .swift-format
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: run swift-format
+          delete-branch: true
+          title: Run swift-format
+          reviewers: ski-u
+          branch: run-swift-format
+
