@@ -14,7 +14,7 @@ public final class AstronomyPictureDetailViewModel {
     var picture: AstronomyPicture?
     
     @ObservationIgnored
-    private var fetchTask: Task<Void, Never>?
+    private(set) var fetchTask: Task<Void, Never>?
     
     @ObservationIgnored
     @Dependency(\.apiClient) private var apiClient
