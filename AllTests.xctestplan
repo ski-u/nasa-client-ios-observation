@@ -21,14 +21,28 @@
     },
     {
       "target" : {
-        "containerPath" : "container:",
+        "containerPath" : "container:Features",
         "identifier" : "AppFeatureTests",
         "name" : "AppFeatureTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:",
+        "containerPath" : "container:Features",
+        "identifier" : "FeatureAstronomyPictureDetailTests",
+        "name" : "FeatureAstronomyPictureDetailTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Features",
+        "identifier" : "FeatureSettingsTests",
+        "name" : "FeatureSettingsTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Features",
         "identifier" : "ModelsTests",
         "name" : "ModelsTests"
       }
