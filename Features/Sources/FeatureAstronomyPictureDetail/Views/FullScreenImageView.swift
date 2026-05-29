@@ -1,3 +1,4 @@
+import Kingfisher
 import SwiftUI
 
 struct FullScreenImageView: View {
@@ -9,23 +10,17 @@ struct FullScreenImageView: View {
     var body: some View {
         ZStack {
             if let hdImageURL {
-                AsyncImage(url: hdImageURL) { phase in
-                    switch phase {
-                    case .empty, .failure:
+                KFImage(hdImageURL)
+                    .placeholder {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .overlay {
                                 ProgressView()
                             }
-                    case let .success(image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    @unknown default:
-                        Text("Unexpected error occurred", bundle: .module)
                     }
-                }
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
             } else {
                 image
                     .resizable()
