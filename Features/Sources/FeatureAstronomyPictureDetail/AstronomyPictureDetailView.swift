@@ -105,6 +105,7 @@ public struct AstronomyPictureDetailView: View {
                     .font(.subheadline)
                     .frame(maxWidth: .infinity)
                     .textCase(nil)
+                    .padding()
                 @unknown default:
                     Text("Unexpected error occurred", bundle: .module)
                 }
