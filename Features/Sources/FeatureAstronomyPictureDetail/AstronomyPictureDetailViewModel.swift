@@ -11,6 +11,7 @@ public final class AstronomyPictureDetailViewModel {
     var date: LocalDate
     var errorMessage: String?
     var isCalendarPresented: Bool
+    var isFullScreenImagePresented: Bool
     var picture: AstronomyPicture?
     
     @ObservationIgnored
@@ -23,12 +24,18 @@ public final class AstronomyPictureDetailViewModel {
         date: LocalDate = .init(from: Date(), in: .newYork),
         errorMessage: String? = nil,
         isCalendarPresented: Bool = false,
+        isFullScreenImagePresented: Bool = false,
         picture: AstronomyPicture? = nil,
     ) {
         self.date = date
         self.errorMessage = errorMessage
         self.isCalendarPresented = isCalendarPresented
+        self.isFullScreenImagePresented = isFullScreenImagePresented
         self.picture = picture
+    }
+    
+    func astronomyPictureImageTapped() {
+        isFullScreenImagePresented = true
     }
     
     func calendarButtonTapped() {

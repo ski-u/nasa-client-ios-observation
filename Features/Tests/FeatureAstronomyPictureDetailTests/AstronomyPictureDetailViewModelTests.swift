@@ -8,6 +8,18 @@ import Testing
 
 struct AstronomyPictureDetailViewModelTests {
     @MainActor
+    struct AstronomyPictureImageTappedTests {
+        @Test
+        func astronomyPictureImageTapped() {
+            let viewModel = AstronomyPictureDetailViewModel()
+            #expect(!viewModel.isFullScreenImagePresented)
+            
+            viewModel.astronomyPictureImageTapped()
+            #expect(viewModel.isFullScreenImagePresented)
+        }
+    }
+    
+    @MainActor
     struct CalendarIntegrationTests {
         @Test
         func calendarButtonTapped() {

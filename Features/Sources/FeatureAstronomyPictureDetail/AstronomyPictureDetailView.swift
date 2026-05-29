@@ -5,8 +5,6 @@ import SwiftUI
 public struct AstronomyPictureDetailView: View {
     @State private var viewModel: AstronomyPictureDetailViewModel
     
-    @State private var isPresentedFullScreenImage = false
-    
     public init(
         viewModel: AstronomyPictureDetailViewModel,
     ) {
@@ -85,13 +83,10 @@ public struct AstronomyPictureDetailView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .onTapGesture {
-                            isPresentedFullScreenImage = true
+                            viewModel.astronomyPictureImageTapped()
                         }
-                        .fullScreenCover(isPresented: $isPresentedFullScreenImage) {
+                        .fullScreenCover(isPresented: $viewModel.isFullScreenImagePresented) {
                             FullScreenImageView(
-                                closeButtonTapped: {
-                                    isPresentedFullScreenImage = false
-                                },
                                 hdImageURL: picture.hdURL,
                                 image: image,
                             )

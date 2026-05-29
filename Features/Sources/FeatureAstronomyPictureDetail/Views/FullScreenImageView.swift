@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct FullScreenImageView: View {
-    let closeButtonTapped: () -> Void
     let hdImageURL: URL?
     let image: Image
+    
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
@@ -35,7 +36,7 @@ struct FullScreenImageView: View {
                 HStack {
                     Spacer()
                     
-                    Button(action: closeButtonTapped) {
+                    Button(action: { dismiss() }) {
                         Image(systemName: "xmark")
                             .foregroundColor(.primary)
                     }
@@ -50,7 +51,6 @@ struct FullScreenImageView: View {
 
 #Preview {
     FullScreenImageView(
-        closeButtonTapped: {},
         hdImageURL: nil,
         image: Image(systemName: "photo"),
     )
