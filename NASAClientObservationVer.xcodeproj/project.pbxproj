@@ -37,9 +37,22 @@
 		0288A3E52FBB354B00978A5B /* NASAClientObservationVerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NASAClientObservationVerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		02EF3D032FC9D8E40045433B /* Exceptions for "NASAClientObservationVer" folder in "NASAClientObservationVer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0288A3CD2FBB354900978A5B /* NASAClientObservationVer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0288A3D02FBB354900978A5B /* NASAClientObservationVer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				02EF3D032FC9D8E40045433B /* Exceptions for "NASAClientObservationVer" folder in "NASAClientObservationVer" target */,
+			);
 			path = NASAClientObservationVer;
 			sourceTree = "<group>";
 		};
@@ -214,6 +227,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 0288A3C52FBB354900978A5B;
 			minimizedProjectReferenceProxies = 1;
@@ -425,6 +439,7 @@
 				DEVELOPMENT_TEAM = H6T6MUCK9A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NASAClientObservationVer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -457,6 +472,7 @@
 				DEVELOPMENT_TEAM = H6T6MUCK9A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NASAClientObservationVer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
