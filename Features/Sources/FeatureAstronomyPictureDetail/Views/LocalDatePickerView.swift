@@ -3,12 +3,14 @@ import LocalDate
 import SwiftUI
 
 public struct LocalDatePickerView: View {
-    @State private var selection: LocalDate = .init(from: Date(), in: .newYork)
+    @State private var selection: LocalDate
     var onCompleted: (LocalDate) -> Void
     
     public init(
+        selection: LocalDate,
         onCompleted: @escaping (LocalDate) -> Void,
     ) {
+        _selection = State(initialValue: selection)
         self.onCompleted = onCompleted
     }
     
@@ -63,6 +65,7 @@ private extension LocalDatePickerView {
 
 #Preview {
     LocalDatePickerView(
+        selection: .init(),
         onCompleted: { _ in },
     )
 }

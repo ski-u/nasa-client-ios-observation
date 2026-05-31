@@ -37,6 +37,7 @@ public struct AstronomyPictureDetailView: View {
         }
         .sheet(isPresented: $viewModel.isCalendarPresented) {
             LocalDatePickerView(
+                selection: viewModel.date,
                 onCompleted: viewModel.dateSelected,
             )
             .presentationDetents([.medium, .large])
