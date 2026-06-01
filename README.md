@@ -7,10 +7,26 @@
   - Official website: https://api.nasa.gov/
   - GitHub repo: https://github.com/nasa/apod-api
 
+## Features
+
+### Browsing Astronomy Picture of the Day (APOD)
+
+| Today's APOD | Specific date |
+| - | - |
+| ![](./Screenshots/apod_today.gif) | ![](./Screenshots/apod_select_date.gif) |
+
+### Accesibility Support
+
+- Light / Dark mode
+- Dynamic Type
+- Localization (EN, JA)
+
 ## Architecture
 
 - A Multi-Module Architecture utilizing Swift Package Manager (SPM)
 - The codebase is divided into a main application target and a local Swift Package named `Features`
+- MVVM using [the Observation frameworks](https://developer.apple.com/documentation/observation)
+- External dependency management using [swift-dependencies](https://github.com/pointfreeco/swift-dependencies)
 
 ### Module Descriptions
 
