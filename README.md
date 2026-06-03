@@ -21,6 +21,13 @@
 - Dynamic Type
 - Localization (EN, JA)
 
+## Getting Started
+
+1. Clone the repo
+2. Open `NASAClientObservationVer.xcodeproj`
+3. Choose `NASAClientObservationVer` scheme
+4. Run the app
+
 ## Architecture
 
 - A Multi-Module Architecture utilizing Swift Package Manager (SPM)
